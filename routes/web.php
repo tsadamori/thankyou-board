@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('ajax/getMessages', 'App\Http\Controllers\AjaxController@getMessages');
+Route::post('ajax/postMessage', 'App\Http\Controllers\AjaxController@postMessage');
