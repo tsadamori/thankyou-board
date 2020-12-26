@@ -49790,8 +49790,18 @@ var app = new Vue({
 
 function format_date(date) {
   // MM月DD日　hh:mm分にフォーマット
-  var formatted_date = date.getMonth() + 1 + '月' + date.getDate() + '日　' + date.getHours() + ':' + date.getMinutes();
+  var formatted_date = toDoubleDigits(date.getMonth() + 1) + '月' + toDoubleDigits(date.getDate()) + '日　' + toDoubleDigits(date.getHours()) + ':' + toDoubleDigits(date.getMinutes());
   return formatted_date;
+}
+
+function toDoubleDigits(num) {
+  num += '';
+
+  if (num.length == 1) {
+    num = '0' + num;
+  }
+
+  return num;
 }
 
 /***/ }),

@@ -16,11 +16,11 @@
             <input @click="addItem" type="button" class="form-control btn btn-success" value="メッセージを送信">
         </div>
     </div>
-    <ul class="list-unstyled">
+    <ul id="message-list" class="list-unstyled">
         <li v-for="message in messages" class="my-4 p-4 bg-light">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between message-content">
                 <p>@{{ message.body }}</p>
-                <p>@{{ message.created_at }}</p>
+                <p class="mr-5">@{{ message.created_at }}</p>
             </div>
         </li>
     </ul>
