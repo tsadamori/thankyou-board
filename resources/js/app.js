@@ -67,7 +67,6 @@ const app = new Vue({
                 axios.get(url2).then((res) => {
                     var now = format_date(new Date());
                     // messagesにデータを格納
-                    console.log(res.data.nickname);
                     this.messages.unshift({
                         body: message,
                         me: true,
@@ -76,6 +75,7 @@ const app = new Vue({
                     });
                 });
             }
+            document.getElementById('message').value = '';
         }
     }
 });

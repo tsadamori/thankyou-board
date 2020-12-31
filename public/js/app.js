@@ -49790,8 +49790,6 @@ var app = new Vue({
         axios.get(url2).then(function (res) {
           var now = format_date(new Date()); // messagesにデータを格納
 
-          console.log(res.data.nickname);
-
           _this.messages.unshift({
             body: message,
             me: true,
@@ -49800,6 +49798,8 @@ var app = new Vue({
           });
         });
       }
+
+      document.getElementById('message').value = '';
     }
   }
 });
