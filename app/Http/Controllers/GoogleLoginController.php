@@ -40,6 +40,7 @@ class GoogleLoginController extends Controller
             'name'     => $googleUser->name,
             'email'    => $googleUser->email,
             'password' => Hash::make(uniqid()),
+            'nickname' => null,
         ]);
         return $user;
     }

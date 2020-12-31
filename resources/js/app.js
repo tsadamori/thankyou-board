@@ -41,6 +41,7 @@ const app = new Vue({
                 var created_at = format_date(new Date(val.created_at));
                 self.messages.push({
                     body: val.message,
+                    nickname: val.nickname,
                     created_at: created_at,
                 });
             });
@@ -49,20 +50,28 @@ const app = new Vue({
     methods: {
         addItem: function(e) {
             var message = document.getElementById('message').value;
-            var now = format_date(new Date());
-            // messagesにデータを格納
-            this.messages.unshift({
-                body: message,
-                created_at: now,
-            });
-            // DBにメッセージを保存
-            var url = 'ajax/postMessage';
-            var data = {
-                message: message,
+            if (message != '') {
+                // DBにメッセージを保存
+                var url1 = 'ajax/postMessage';
+                var data = {
+                    message: message,
+                }
+                axios.post(url1, data).then(() => {
+                    console.log('メッセージを登録しました');
+                });
+    
+                var url2 = 'ajax/getNickname';
+                axios.get(url2).then((res) => {
+                    var now = format_date(new Date());
+                    // messagesにデータを格納
+                    console.log(res.data.nickname);
+                    this.messages.unshift({
+                        body: message,
+                        nickname: res.data.nickname,
+                        created_at: now,
+                    });
+                });
             }
-            axios.post(url, data).then(() => {
-                console.log('メッセージを登録しました');
-            });
         }
     }
 });

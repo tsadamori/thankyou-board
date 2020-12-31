@@ -12,7 +12,13 @@
             <a href="login"><input type="button" class="btn btn-primary" value="ログインして投稿する"></a>
         </div>
     @else
-        <div class="text-center">
+        <div class="text-center mb-5">
+            @if (is_null($user->nickname))
+                <a href="nickname"><input type="button" class="btn btn-primary" value="ニックネームを設定する"></a>
+            @else
+                <a href="nickname"><input type="button" class="btn btn-primary" value="ニックネームを変更する"></a>
+            @endif
+
             <a href="logout"><input type="button" class="btn btn-secondary" value="ログアウト"></a>
         </div>
         <!-- ボタンエリア -->
@@ -26,10 +32,11 @@
         </div>
     @endguest
     <ul id="message-list" class="list-unstyled">
-        <li v-for="message in messages" class="my-4 p-4 bg-light">
+        <li v-for="message in messages" class="my-4 p-4 bg-light w-75 mx-auto">
             <div class="row align-items-end justify-content-between message-content">
                 <p class="col-12 col-lg-10">@{{ message.body }}</p>
-                <p class="col-12 col-lg-2 text-right">@{{ message.created_at }}</p>
+                <p class="col-12 col-lg-2 text-right">@{{ message.created_at }}<br>posted by @{{ message.nickname }}</p>
+                
             </div>
         </li>
     </ul>

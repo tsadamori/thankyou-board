@@ -21,9 +21,14 @@ use App\Http\Controllers;
 // Message Controller
 Route::get('/', 'App\Http\Controllers\MessageController@index');
 
+// User Controller
+Route::get('nickname', 'App\Http\Controllers\UserController@nickname');
+Route::post('update_nickname', 'App\Http\Controllers\UserController@update_nickname');
+
 // Ajax Controller
 Route::get('ajax/getMessages', 'App\Http\Controllers\AjaxController@getMessages');
 Route::post('ajax/postMessage', 'App\Http\Controllers\AjaxController@postMessage');
+Route::get('ajax/getNickname', 'App\Http\Controllers\AjaxController@getNickname');
 
 // Login Controller
 Route::get('login', 'App\Http\Controllers\Auth\LoginController@index');
