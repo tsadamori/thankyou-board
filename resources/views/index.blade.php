@@ -24,7 +24,7 @@
         <!-- ボタンエリア -->
         <div class="row m-0 m-lg-5 mb-5 px-2 py-5 px-lg-5 bg-dark">
             <div class="col-12 col-lg-9 mb-3 mb-lg-0">
-                <input id="message" type="text" class="form-control">
+                <input id="message" type="text" class="form-control" placeholder="メッセージを入力してください">
             </div>
             <div class="col-12 col-lg-3">
                 <input @click="addItem" type="button" class="form-control btn btn-success" value="メッセージを送信">
