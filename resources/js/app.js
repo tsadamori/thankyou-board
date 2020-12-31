@@ -41,6 +41,9 @@ const app = new Vue({
                 var created_at = format_date(new Date(val.created_at));
                 self.messages.push({
                     body: val.message,
+                    // 自分の投稿かどうか判定
+                    me: val.me,
+                    // me: false,
                     nickname: val.nickname,
                     created_at: created_at,
                 });
@@ -67,6 +70,7 @@ const app = new Vue({
                     console.log(res.data.nickname);
                     this.messages.unshift({
                         body: message,
+                        me: true,
                         nickname: res.data.nickname,
                         created_at: now,
                     });
@@ -80,8 +84,8 @@ function format_date(date)
 {
     // MM月DD日　hh:mm分にフォーマット
     var formatted_date = 
-        toDoubleDigits(date.getMonth() + 1) + '月'
-        + toDoubleDigits(date.getDate()) + '日　'
+        toDoubleDigits(date.getMonth() + 1) + '/'
+        + toDoubleDigits(date.getDate()) + ' '
         + toDoubleDigits(date.getHours()) + ':'
         + toDoubleDigits(date.getMinutes());
     
