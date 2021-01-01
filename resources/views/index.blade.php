@@ -4,7 +4,7 @@
 
 <div class="my-5 text-center">
     <h1>Thank You Board</h1>
-    <p>〜身近な人に、感謝を伝えよう！〜</p>
+    <p>〜身近な人などに感謝を伝える掲示板〜</p>
 </div>
 <div id="app">
     @guest
