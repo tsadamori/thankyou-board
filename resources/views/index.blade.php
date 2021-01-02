@@ -34,7 +34,7 @@
     <ul id="message-list" class="list-unstyled line-bc">
         <li v-for="message in messages" class="my-4">
             <div v-if="message.me == true">
-                <div class="mycomment">
+                <div class="mycomment text-left">
                     <p class="text-white">@{{ message.body }}</p>
                 </div>
                 <p>@{{ message.created_at }}</p>
